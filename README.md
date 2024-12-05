@@ -1,5 +1,5 @@
 # Ex.05 Design a Website for Server Side Processing
-# Date:
+# Date:05.12.2024
 # AIM:
 To design a website to calculate the power of a lamp filament in an incandescent bulb in the server side.
 
@@ -29,6 +29,86 @@ Create a HTML file to implement form based input and output.
 Publish the website in the given URL.
 
 # PROGRAM :
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Lamp Filament Power</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label, input {
+            margin: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculate Lamp Filament Power</h1>
+    <form id="powerForm">
+        <label for="intensity">Intensity (I in Amperes):</label>
+        <input type="number" id="intensity" name="intensity" step="0.01" required>
+        <br>
+        <label for="resistance">Resistance (R in Ohms):</label>
+        <input type="number" id="resistance" name="resistance" step="0.01" required>
+        <br>
+        <button type="button" onclick="calculatePower()">Calculate Power</button>
+    </form>
+    <h2 id="result"></h2>
+    <script>
+        function calculatePower() {
+            const intensity = parseFloat(document.getElementById('intensity').value);
+            const resistance = parseFloat(document.getElementById('resistance').value);
+
+            if (isNaN(intensity) || isNaN(resistance)) {
+                alert('Please enter valid numbers for both intensity and resistance.');
+                return;
+            }
+
+            const power = Math.pow(intensity, 2) * resistance;
+            document.getElementById('result').innerText = `Power (P) = ${power.toFixed(2)} watts`;
+        }
+    </script>
+</body>
+</html>
+```
 # SERVER SIDE PROCESSING:
 # HOMEPAGE:
 # RESULT:
